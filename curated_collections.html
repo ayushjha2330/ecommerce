@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Collections - STITCH</title>
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Inter:wght@100..900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Tailwind Config from Style Guidance -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dcdad5",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#ebe8e3",
+                        "tertiary-fixed": "#efe0d4",
+                        "on-secondary-fixed-variant": "#61401b",
+                        "on-tertiary-fixed": "#211a13",
+                        "outline": "#747878",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#474746",
+                        "secondary-container": "#fdcb9b",
+                        "secondary-fixed-dim": "#eebd8e",
+                        "surface-tint": "#5f5e5e",
+                        "inverse-primary": "#c8c6c5",
+                        "on-background": "#1c1c19",
+                        "surface-container-low": "#f6f3ee",
+                        "on-secondary-container": "#79542d",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "tertiary": "#000000",
+                        "inverse-surface": "#31302d",
+                        "primary-container": "#1c1b1b",
+                        "primary": "#000000",
+                        "surface-container-highest": "#e5e2dd",
+                        "tertiary-container": "#211a13",
+                        "surface-container": "#f0ede9",
+                        "primary-fixed": "#e5e2e1",
+                        "on-secondary-fixed": "#2c1600",
+                        "on-primary-container": "#858383",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffdcbd",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#8d8277",
+                        "on-surface-variant": "#444748",
+                        "secondary": "#7c5730",
+                        "tertiary-fixed-dim": "#d2c4b8",
+                        "outline-variant": "#c4c7c7",
+                        "background": "#fcf9f4",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e5e2dd",
+                        "inverse-on-surface": "#f3f0eb",
+                        "surface": "#fcf9f4",
+                        "surface-bright": "#fcf9f4",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#4e453c",
+                        "on-surface": "#1c1c19",
+                        "on-primary-fixed": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "unit": "8px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "display-lg": ["EB Garamond"],
+                        "headline-lg": ["EB Garamond"],
+                        "headline-xl": ["EB Garamond"],
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg-mobile": ["EB Garamond"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["80px", { "lineHeight": "88px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.01em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-surface text-on-surface antialiased font-body-md selection:bg-primary selection:text-on-primary">
+    <!-- TopNavBar Component -->
+    <nav
+        class="bg-background/80 dark:bg-background/80 backdrop-blur-md fixed w-full top-0 z-50 border-b border-outline-variant/30">
+        <div
+            class="flex justify-between items-center w-full px-margin-desktop py-6 max-w-container-max mx-auto md:px-margin-desktop px-margin-mobile">
+            <!-- Navigation Links (Left) -->
+            <ul class="hidden md:flex space-x-8">
+                <li><a class="text-on-surface-variant dark:text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-300"
+                        href="shop_all.html">Shop</a></li>
+                <li><a class="text-primary dark:text-primary font-semibold border-b border-primary font-body-md text-body-md hover:text-primary transition-colors duration-300"
+                        href="curated_collections.html">Collections</a></li>
+                <li><a class="text-on-surface-variant dark:text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-300"
+                        href="custom_commissions.html">Custom</a></li>
+                <li><a class="text-on-surface-variant dark:text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-300"
+                        href="our_story.html">About</a></li>
+            </ul>
+            <!-- Mobile Menu Icon (Hidden on Desktop) -->
+            <button class="md:hidden text-primary dark:text-primary">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+            </button>
+            <!-- Brand Logo (Center) -->
+            <a class="font-headline-lg text-headline-lg tracking-tighter text-primary dark:text-primary absolute left-1/2 transform -translate-x-1/2"
+                href="home.html">
+                STITCH
+            </a>
+            <!-- Trailing Icons (Right) -->
+            <div class="flex space-x-6 text-primary dark:text-primary font-body-md text-body-md">
+                <button aria-label="favorite"
+                    class="hover:text-primary transition-colors duration-300 active:opacity-70 transition-opacity">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+                </button>
+                <button aria-label="shopping_bag" class="hover:text-primary transition-colors duration-300 active:opacity-70 transition-opacity relative cart-toggle">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
+                    <span class="cart-badge absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] w-4 h-4 rounded-full items-center justify-center font-bold hidden">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content Canvas -->
+    <main class="pt-[120px] pb-section-gap">
+        <!-- Page Header -->
+        <header class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-section-gap">
+            <div class="max-w-3xl">
+                <h1
+                    class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface mb-6">
+                    Curated Collections</h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant">Explore our thoughtfully assembled
+                    selections, designed to mark life's most meaningful moments with objects of enduring beauty and
+                    purpose.</p>
+            </div>
+        </header>
+        <!-- Editorial Grid Layout -->
+        <section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-y-[80px] md:gap-gutter">
+                <!-- Collection 1: Birthday (Large, Left) -->
+                <article class="col-span-1 md:col-span-7 group cursor-pointer">
+                    <div class="relative overflow-hidden bg-surface-container-lowest">
+                        <img alt="Birthday Gifts Collection"
+                            class="w-full h-auto aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105"
+                            data-alt="Sophisticated lifestyle shot of a beautifully wrapped gift box in a minimalist, sunlit studio setting. Crisp white surfaces with soft, natural shadows. The wrapping features textured, organic paper in muted tones of cream and pale blush, tied with a luxurious silk ribbon. The composition is asymmetrical, emphasizing negative space and a modern heirloom aesthetic suitable for a high-end atelier."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDqyywwITiJ2cRBzqFoBvUGZDmOXO-yJPZ4TIRSJAmoiyRNV6nbZ95fkdImV1ejW2esCs53SwbV6LVJ5OvVKazZX4mK8FSR2BSESrox9LLNJ3fjrIBlwfbrrIaJySvuPnhrwV_FUR3VWMNXPHqvF273LNL60F6PJWkvtANlErvqz3VJmm9u4P2YRhHqj9Di77y3aQaH1Y1hJtUBGJOabpJz3stqnap3w5Ah4thKoOT8DT2GbBn4N-4xxekdTXCqIrHsECJIxw8AgQ" />
+                    </div>
+                    <div class="mt-8 flex flex-col items-start">
+                        <span
+                            class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-3">Celebration</span>
+                        <h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Birthday Gifts</h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-6">Elevate their special
+                            day with handcrafted pieces designed to be cherished for a lifetime. A celebration of
+                            individuality.</p>
+                        <span
+                            class="font-body-md text-body-md text-on-surface border-b border-on-surface pb-1 group-hover:text-surface-tint group-hover:border-surface-tint transition-colors duration-300 flex items-center gap-2">
+                            Explore Collection <span
+                                class="material-symbols-outlined text-[16px]">arrow_right_alt</span>
+                        </span>
+                    </div>
+                </article>
+                <!-- Collection 2: Anniversary (Smaller, Right, Offset) -->
+                <article class="col-span-1 md:col-span-4 md:col-start-9 md:mt-[120px] group cursor-pointer">
+                    <div class="relative overflow-hidden bg-surface-container-lowest">
+                        <img alt="Anniversary Gifts Collection"
+                            class="w-full h-auto aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105"
+                            data-alt="Editorial close-up of a pair of handcrafted leather goods resting on a smooth marble plinth. Warm, directional lighting highlights the rich texture and meticulous stitching of the items. The background is a soft, out-of-focus cream tone, ensuring the products remain the focal point. The mood is intimate, enduring, and luxurious, reflecting a timeless commitment and artisanal craftsmanship."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVic76K_7F3pDjubRGH8CpCPd7mImriBBFaH6c_aqVYXEGeS3ATqC2UO5OdzNCfiw8bdb9DNpNl_cwMIuOcdfSphpcg9yWcalXB6Pv8F2x02rVnO0Fe1j9yP_8sL2V_fbdCwmlb7AgVBkDSRCgwIKFjv0u1g7DUlYmZwriNmppsl7jmmJ408RFiZPaRP3p9aV1ru_KCFUoXX5p6FwNg-L__7Mu7yNPOtN4a9ObKL_Pjon_3atsrKNgBYkyW9eLCBtK5oDVRhS5wVs" />
+                    </div>
+                    <div class="mt-8 flex flex-col items-start">
+                        <span
+                            class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-3">Devotion</span>
+                        <h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Anniversary Gifts</h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant max-w-xs mb-6">Tokens of enduring
+                            affection. Impeccably crafted items that age gracefully, much like the bond they
+                            commemorate.</p>
+                        <span
+                            class="font-body-md text-body-md text-on-surface border-b border-on-surface pb-1 group-hover:text-surface-tint group-hover:border-surface-tint transition-colors duration-300 flex items-center gap-2">
+                            Explore Collection <span
+                                class="material-symbols-outlined text-[16px]">arrow_right_alt</span>
+                        </span>
+                    </div>
+                </article>
+                <!-- Spacer for rhythm -->
+                <div class="hidden md:block col-span-12 h-[80px]"></div>
+                <!-- Collection 3: Couple (Smaller, Left) -->
+                <article class="col-span-1 md:col-span-5 group cursor-pointer">
+                    <div class="relative overflow-hidden bg-surface-container-lowest">
+                        <img alt="Couple Gifts Collection"
+                            class="w-full h-auto aspect-square object-cover transition-transform duration-700 group-hover:scale-105"
+                            data-alt="Artistic composition featuring two complementary artisanal objects, perhaps delicate ceramics or woven textiles, arranged harmoniously on a textured linen surface. The lighting is soft and diffused, creating an atmosphere of shared warmth and subtle elegance. The color palette revolves around earthy neutrals and soft whites, embodying a sophisticated, modern minimalist approach to couples' gifting."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9Kl-mtghx84E5E936YJeJdQXMJtm0BQPhFqZv2rUtepAl6bq_jcpTFPp1dJpoUBC2aF45BULXNjItRYKq2eaZWEtZh4UZ8wzQL2BSbXKci7NX9baB29n-eE496G5wwiANlFU3OGVMNTMKvzWP0207QNicwJ0JOcYb7Wf4piN8sF2YP4q1IYexboYPPM0Rf9zICYcuPIwhu_xX2oOvdVAaM2VGZG-wDyfK5SjXuPVctpfDcp4QEAUMCZP3EEkYWATry1_heochPXY" />
+                    </div>
+                    <div class="mt-8 flex flex-col items-start">
+                        <span
+                            class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-3">Union</span>
+                        <h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Couple Gifts</h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant max-w-sm mb-6">Harmonious objects
+                            designed to be shared. Enhance their shared spaces with pieces that speak to a unified
+                            aesthetic.</p>
+                        <span
+                            class="font-body-md text-body-md text-on-surface border-b border-on-surface pb-1 group-hover:text-surface-tint group-hover:border-surface-tint transition-colors duration-300 flex items-center gap-2">
+                            Explore Collection <span
+                                class="material-symbols-outlined text-[16px]">arrow_right_alt</span>
+                        </span>
+                    </div>
+                </article>
+                <!-- Collection 4: Friendship (Large, Right, Offset down) -->
+                <article class="col-span-1 md:col-span-6 md:col-start-7 md:mt-[80px] group cursor-pointer">
+                    <div class="relative overflow-hidden bg-surface-container-lowest">
+                        <img alt="Friendship Gifts Collection"
+                            class="w-full h-auto aspect-[16/10] object-cover transition-transform duration-700 group-hover:scale-105"
+                            data-alt="A beautifully styled flat lay of curated small gifts—a scented candle, a handcrafted journal, and a minimalist pen—arranged thoughtfully on an expanse of clean white space. Shot from directly above with even, high-key lighting to enhance clarity and crispness. The layout feels rhythmic and magazine-like, celebrating the art of thoughtful, elevated gifting among close friends."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSioQG9mOuTTgq9acBNbH4hsksV4nqG_kiOCtTpDN0m7qcj9dPpYDCrd2CbtPWjIPe8QcBR0pQc1nBBax8ZBz1-L7MODiu58ncKBbV6OYzMv39OyKbp0php9efbQ9hYA6LEOKcCIfzRDz1mlI1a0dPkQeyBEqQ7_ejqTg4jP79SrbC1XeKBzevszNMvJ0X7REvNQ2amxxRt207VwXSWCYSbLBBcUFG_dOY0awb0ksM5ajcaLlYt1xVTUKvAHG6Q-5vHFDlFWHOeDU" />
+                    </div>
+                    <div class="mt-8 flex flex-col items-start">
+                        <span
+                            class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-3">Connection</span>
+                        <h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Friendship Gifts</h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-6">Thoughtful gestures
+                            that transcend the ordinary. Curated selections to express gratitude and celebrate enduring
+                            companionship.</p>
+                        <span
+                            class="font-body-md text-body-md text-on-surface border-b border-on-surface pb-1 group-hover:text-surface-tint group-hover:border-surface-tint transition-colors duration-300 flex items-center gap-2">
+                            Explore Collection <span
+                                class="material-symbols-outlined text-[16px]">arrow_right_alt</span>
+                        </span>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <!-- Footer Component -->
+    <footer class="bg-surface-container dark:bg-surface-container-highest border-t border-outline-variant w-full">
+        <div
+            class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+            <!-- Brand & Copyright -->
+            <div class="md:col-span-1 flex flex-col justify-between">
+                <a class="font-headline-xl text-headline-xl text-primary dark:text-primary mb-8 md:mb-0 focus:ring-1 focus:ring-outline outline-none inline-block"
+                    href="home.html">
+                    STITCH
+                </a>
+                <p class="font-body-md text-body-md text-on-surface-variant mt-auto">
+                    © 2026 STITCH ATELIER. CRAFTED FOR THE DISCERNING.
+                </p>
+            </div>
+            <!-- Empty Column for Spacing -->
+            <div class="hidden md:block md:col-span-2"></div>
+            <!-- Links -->
+            <div class="md:col-span-1 flex flex-col space-y-4">
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300 focus:ring-1 focus:ring-outline outline-none w-fit"
+                    href="#">Journal</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300 focus:ring-1 focus:ring-outline outline-none w-fit"
+                    href="#">Care Guide</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300 focus:ring-1 focus:ring-outline outline-none w-fit"
+                    href="#">Shipping</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300 focus:ring-1 focus:ring-outline outline-none w-fit"
+                    href="#">Privacy</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300 focus:ring-1 focus:ring-outline outline-none w-fit"
+                    href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+<!-- Cart Drawer -->
+<div id="cart-overlay" class="fixed inset-0 bg-black/30 z-40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+<div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-surface-container-lowest z-50 transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col">
+  <div class="flex justify-between items-center px-6 py-6 border-b border-outline-variant/30">
+    <div><h3 class="font-headline-lg text-headline-lg text-primary">Your Bag</h3><p class="font-body-md text-body-md text-on-surface-variant" id="drawer-count">0 items</p></div>
+    <button class="cart-toggle text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">close</span></button>
+  </div>
+  <div class="flex-1 overflow-y-auto px-6" id="drawer-items"></div>
+  <div class="border-t border-outline-variant/30 px-6 py-6">
+    <div class="flex justify-between items-center mb-4">
+      <span class="font-body-lg text-body-lg text-primary">Total</span>
+      <span class="font-headline-lg text-headline-lg text-primary" id="drawer-total">$0.00</span>
+    </div>
+    <a href="cart.html" class="block w-full py-4 bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-widest text-center hover:bg-primary/90 transition-colors">View Bag & Checkout</a>
+  </div>
+</div>
+
+<script src="js/db.js"></script>
+<script src="js/cart.js"></script>
+</body>
+
+</html>

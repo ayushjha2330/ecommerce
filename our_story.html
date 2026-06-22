@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About STITCH</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=EB+Garamond:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-dim": "#dcdad5",
+                      "on-primary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#ebe8e3",
+                      "tertiary-fixed": "#efe0d4",
+                      "on-secondary-fixed-variant": "#61401b",
+                      "on-tertiary-fixed": "#211a13",
+                      "outline": "#747878",
+                      "on-error": "#ffffff",
+                      "on-primary-fixed-variant": "#474746",
+                      "secondary-container": "#fdcb9b",
+                      "secondary-fixed-dim": "#eebd8e",
+                      "surface-tint": "#5f5e5e",
+                      "inverse-primary": "#c8c6c5",
+                      "on-background": "#1c1c19",
+                      "surface-container-low": "#f6f3ee",
+                      "on-secondary-container": "#79542d",
+                      "on-error-container": "#93000a",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "tertiary": "#000000",
+                      "inverse-surface": "#31302d",
+                      "primary-container": "#1c1b1b",
+                      "primary": "#000000",
+                      "surface-container-highest": "#e5e2dd",
+                      "tertiary-container": "#211a13",
+                      "surface-container": "#f0ede9",
+                      "primary-fixed": "#e5e2e1",
+                      "on-secondary-fixed": "#2c1600",
+                      "on-primary-container": "#858383",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed": "#ffdcbd",
+                      "error": "#ba1a1a",
+                      "on-tertiary-container": "#8d8277",
+                      "on-surface-variant": "#444748",
+                      "secondary": "#7c5730",
+                      "tertiary-fixed-dim": "#d2c4b8",
+                      "outline-variant": "#c4c7c7",
+                      "background": "#fcf9f4",
+                      "on-tertiary": "#ffffff",
+                      "surface-variant": "#e5e2dd",
+                      "inverse-on-surface": "#f3f0eb",
+                      "surface": "#fcf9f4",
+                      "surface-bright": "#fcf9f4",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed-variant": "#4e453c",
+                      "on-surface": "#1c1c19",
+                      "on-primary-fixed": "#1c1b1b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap": "120px",
+                      "margin-mobile": "20px",
+                      "gutter": "24px",
+                      "margin-desktop": "64px",
+                      "unit": "8px",
+                      "container-max": "1440px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "EB Garamond"
+                      ],
+                      "headline-lg": [
+                              "EB Garamond"
+                      ],
+                      "headline-xl": [
+                              "EB Garamond"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "EB Garamond"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "80px",
+                              {
+                                      "lineHeight": "88px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-xl": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "48px",
+                              {
+                                      "lineHeight": "52px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        /* Smooth scrolling and base resets */
+        html { scroll-behavior: smooth; }
+        body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar Shared Component -->
+<header class="fixed w-full top-0 z-50 bg-background/80 dark:bg-background/80 backdrop-blur-md border-b border-outline-variant/30 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 mx-auto">
+<a class="font-headline-lg text-headline-lg tracking-tighter text-primary dark:text-primary" href="home.html">STITCH</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-300 opacity-70 hover:opacity-100 transition-opacity" href="shop_all.html">Shop</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-300 opacity-70 hover:opacity-100 transition-opacity" href="curated_collections.html">Collections</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-300 opacity-70 hover:opacity-100 transition-opacity" href="custom_commissions.html">Custom</a>
+<a class="text-primary dark:text-primary font-semibold border-b border-primary font-body-md text-body-md hover:text-primary transition-colors duration-300 opacity-100 transition-opacity" href="our_story.html">About</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="text-primary dark:text-primary font-body-md text-body-md hover:text-primary transition-colors duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+<button class="text-primary dark:text-primary font-body-md text-body-md hover:text-primary transition-colors duration-300 relative cart-toggle">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
+<span class="cart-badge absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] w-4 h-4 rounded-full items-center justify-center font-bold hidden">0</span>
+</button>
+</div>
+</header>
+<main class="flex-grow pt-[120px]">
+<!-- Hero Section -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-section-gap">
+<div class="mb-12">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-background max-w-4xl">
+                    Crafting the <br/>
+<span class="italic text-secondary">modern heirloom.</span>
+</h1>
+</div>
+<div class="w-full aspect-[4/3] md:aspect-[21/9] bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A highly artistic, editorial wide photograph of a partially finished, intricately crocheted cream-colored afghan draped casually over a mid-century modern linen chair. The scene is bathed in soft, natural morning light filtering through sheer curtains, creating a high-key, pristine aesthetic typical of luxury magazines. The color palette focuses on creamy off-whites, soft beige, and subtle ambient shadows. The composition is cinematic and expansive, emphasizing the deep tactile nature of the premium chunky wool yarn and the quiet atmosphere of the atelier." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn8Px6i4tYpD4VbHqCnvCLiZcmG5f5e89KscYgo3QEtAGMzpH_yE-ldWilAWWtZhP2mv9exv6tou_ZqkLs6gvog4UqkQ1mYhcJ7XIeoJAsGkT2zBMwtnFo9MVsqVFGjFq4L6NkbIaTOvIBbDrzWfp7w4aHkezZIS8GWLB-BbMjZV-EGgn7l09u44WIzpp3c78nboxdnqsGO1ZnaPwinEtcEBBdbjS6xbu037moE3YF1zdwVcrp3rkph1SuORPVRLDSpEuRB_bo5Nk"/>
+</div>
+</section>
+<!-- Our Story (Asymmetric Layout) -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5 md:col-start-2 order-2 md:order-1 mt-12 md:mt-0">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-6">Our Story</h2>
+<h3 class="font-headline-xl text-headline-xl text-on-background mb-8">A legacy woven by hand, not machines.</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+                        Stitch was born from a desire to return to slowness. In a world of mass production, we sought the quiet rhythm of the hook and yarn. Every piece is an homage to the generations of artisans who understood that true luxury is measured in time, attention, and the slight imperfections that prove a human touch.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Our studio operates under a simple philosophy: if it is to be a modern heirloom, it must be crafted with an integrity that outlasts fleeting trends. We do not manufacture; we create.
+                    </p>
+</div>
+<div class="md:col-span-5 md:col-start-8 order-1 md:order-2">
+<img class="w-full aspect-[4/5] object-cover" data-alt="An intimate, close-up editorial portrait of an artisan's hands gently working with a delicate, fine-gauge crochet hook and silk-blend yarn. The lighting is soft and directional, highlighting the texture of the skin and the intricate loops of the fabric being created. The background is a soft, out-of-focus studio environment featuring warm, natural tones, off-whites, and a hint of warm wooden furniture. The image evokes a deep sense of heritage, care, and quiet dedication." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvLTeWdpWu-3K8YvcygvCx_e9CZS4tMet26M7ab3Teu60kC1lNpwVHEPweN4a8tPfszfXXYd3WPuuhxKemmnGrsuGK8zoFia56yxH_ia7tLKRe0G-dO-UkHHVmN4N413v6Y4tR-0vvjtn9sVSLkqCC8_00X1Bm3Y11ZFA_C6TLjOkFfpA7qc1gQVP05lur6OFPh9NhTAV8BM6lCYE6I2PpRD-xJ-3hIjExP8FZc6Thb1pDETPTbGEKNbyg26TV_vXqXmUmdIRaWrE"/>
+</div>
+</div>
+</section>
+<!-- Our Process (Editorial Grid) -->
+<section class="bg-surface-container-low py-section-gap">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-24 max-w-2xl mx-auto">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-4">The Process</h2>
+<h3 class="font-headline-xl text-headline-xl text-on-background">The rhythm of creation.</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="flex flex-col gap-6">
+<div class="aspect-[3/4] overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A minimalist, top-down shot of a sketchbook open to a page filled with hand-drawn geometric crochet patterns and notes written in elegant script. Beside the sketchbook lies a vintage wooden crochet hook and a small spool of natural, undyed cotton yarn. The scene is set on a pristine white marble table, bathed in bright, diffused light, communicating a sense of thoughtful planning and artistic design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAieRtiApRW5zJu3vilEjXJ0GKENN--MK_6nP8gTzP0k6Zl2dRUGADFRgztTlFLxN-s13EkksQm3CGRy17--jfw3SvgmYJBiqxwmRUJdHI91nFcvsyJ8SfOMfYltiuwGn5LN7DDZMmzVAr-_mVGPzfjNPJr7iznpDq0917giOMe7OV-i1OUMtLdPzG_9S9BNSEoA59W2oc2ZhH6h9Ox_FvVRuIRyXuUTuHd1REYNrin9PADvrmjMKon95T7Xp_Y1eGWaiyTJCVvu5o"/>
+</div>
+<div>
+<h4 class="font-headline-lg text-headline-lg text-on-background mb-2">01. Conception</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Every design begins as a sketch, translating abstract geometry into physical form through the mathematics of stitches.</p>
+</div>
+</div>
+<div class="flex flex-col gap-6 md:mt-24">
+<div class="aspect-[3/4] overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A striking macro photograph focusing tightly on the interlocking stitches of a dense, textured crochet pattern. The depth of field is incredibly shallow, blurring the foreground and background to draw the eye to the precision of the central loops. The material is a rich, warm charcoal grey wool, contrasting against a soft, bright background. The lighting highlights the fine fibers and the tension of the craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuR0MqSALXLEwPt7L7nG0-HyWE6FwiMP00SUJ4K_1wHk5vJbPuov2uriOS_rpSxZzrb_uWzo2HWlDYnqlmDn64iOpIlHz3ElIMuo8gVrsgnm4mnqKFenHJv3l7xt5uWGybDqKiQ0r77u7JHvlJPIHF5d5j-5nqVLfRvbYE8spAltCOTDFvI70QCATTWVyG9xln-DYmQF4IUGmjY96WOiTeWWOsRvjP2uJxDQS06JNizio_tsXWwR_BnO81yp0b8xn8JD6hcKRNDPU"/>
+</div>
+<div>
+<h4 class="font-headline-lg text-headline-lg text-on-background mb-2">02. Execution</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Hours of rhythmic motion. The tension of the yarn and the cadence of the artisan dictate the unique drape of the final piece.</p>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<div class="aspect-[3/4] overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A serene image of a finished, folded crochet garment resting on a minimal wooden plinth against a pure white gallery wall. A delicate hand is seen lightly pressing a custom embossed leather tag onto the hem of the garment. The lighting is clean, high-key, and professional, emphasizing the final moment of completion and the elevation of a crafted good into a branded piece of art." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6M0wMdaR8W_2Cj7J5vkYmUrWdvUVmo5KP0fmZszYmSe7UEhi98IuOh8eiBcZ0gh8sDY94J5c9jTzU3pRiPoNtJX6p7FK2uKdV9SUo_kXYFMCdBXAsulA66gFJX0Pw4IBdbAdo5Vpbp3AIjxBMRKuEdck1p4Dz6v0wnakWFGtF157m9iqhEx0iTDw7CmveX6-oxdiXs0TFrUtkinY9qvUtg0-Jt4una-eYcHdyCDwnm5sl7jdw9p6FprhzCjZ508szstnjIsLvqNs"/>
+</div>
+<div>
+<h4 class="font-headline-lg text-headline-lg text-on-background mb-2">03. Finishing</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Washed, blocked, and finished by hand. The final inspection ensures the piece is ready for its lifetime of use.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Our Materials (Full Width Feature) -->
+<section class="py-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-2">
+<div class="h-[614px] md:h-auto min-h-[500px]">
+<img class="w-full h-full object-cover" data-alt="An expansive, highly detailed overhead photograph of various raw materials used in premium crochet. Skeins of unspun merino wool, cones of Egyptian cotton, and hanks of shimmering silk are artfully arranged in a cascading composition across a pristine, light-grey studio surface. The colors are strictly organic: deep taupe, soft ivory, pale oat, and muted charcoal. The lighting is soft and even, highlighting the diverse textures and the undeniable quality of the natural fibers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIGEV2g5zYJd0NLpIi9Hsn1GvI8MJFDdoqDYI0V4Ru6YZIo2LSKGLH_dG3o1MpW8mERcBA_KLrgT8Pd37hK9dzb2Ks0fyq_7znQGEIBwrB5_OaBiKFnuQAdMSsTjA1haVAydxaTulj-C8nSgwi3IBBCTeEay8vRLr-6acNX8JulBREYsAfdqkVHLhea4fegifkZYRxD9o9kEFsNRjp8oFmFkomEf8VazZv6nCRA0v_U1EaXSeGGCWlSUrDhTqr7W5-AzZGrN8DQv4"/>
+</div>
+<div class="bg-surface px-margin-mobile md:px-margin-desktop py-24 flex flex-col justify-center">
+<div class="max-w-md">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-6">Our Materials</h2>
+<h3 class="font-headline-xl text-headline-xl text-on-background mb-8">Uncompromising purity.</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+                            A masterpiece cannot be forged from inferior materials. We source only the finest natural fibers—ethically harvested merino, long-staple Egyptian cotton, and pure silk—ensuring that the tactile experience of our pieces is as enduring as their visual appeal.
+                        </p>
+<a class="inline-flex items-center pb-2 border-b border-primary text-primary font-label-caps text-label-caps uppercase tracking-widest hover:text-secondary hover:border-secondary transition-colors duration-300" href="#">
+                            Discover our sourcing
+                        </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Handmade Matters (Emotional Anchor) -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-section-gap mb-24">
+<div class="bg-surface-container-highest p-12 md:p-24 text-center max-w-5xl mx-auto flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-outline text-4xl mb-8" style="font-variation-settings: 'FILL' 0;">all_match</span>
+<h2 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-background mb-10 max-w-3xl leading-tight">
+                    "In every knot and loop resides the intention of the maker. It is the transfer of human energy into an object of comfort."
+                </h2>
+<p class="font-headline-lg text-headline-lg italic text-secondary font-serif">
+                    — The Stitch Atelier
+                </p>
+</div>
+</section>
+</main>
+<!-- Footer Shared Component -->
+<footer class="w-full bg-surface-container dark:bg-surface-container-highest border-t border-outline-variant grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-section-gap max-w-container-max mx-auto">
+<div class="md:col-span-1">
+<span class="font-headline-xl text-headline-xl text-primary dark:text-primary tracking-tighter">STITCH</span>
+</div>
+<div class="md:col-span-2 flex flex-col gap-4">
+<div class="flex flex-wrap gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300 focus:ring-1 focus:ring-outline" href="#">Journal</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300 focus:ring-1 focus:ring-outline" href="#">Care Guide</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300 focus:ring-1 focus:ring-outline" href="#">Shipping</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300 focus:ring-1 focus:ring-outline" href="#">Privacy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300 focus:ring-1 focus:ring-outline" href="#">Terms</a>
+</div>
+</div>
+<div class="md:col-span-1 md:text-right">
+<p class="font-body-md text-body-md text-primary dark:text-primary">© 2026 STITCH ATELIER. CRAFTED FOR THE DISCERNING.</p>
+</div>
+</footer>
+
+<!-- Cart Drawer -->
+<div id="cart-overlay" class="fixed inset-0 bg-black/30 z-40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+<div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-surface-container-lowest z-50 transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col">
+  <div class="flex justify-between items-center px-6 py-6 border-b border-outline-variant/30">
+    <div><h3 class="font-headline-lg text-headline-lg text-primary">Your Bag</h3><p class="font-body-md text-body-md text-on-surface-variant" id="drawer-count">0 items</p></div>
+    <button class="cart-toggle text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">close</span></button>
+  </div>
+  <div class="flex-1 overflow-y-auto px-6" id="drawer-items"></div>
+  <div class="border-t border-outline-variant/30 px-6 py-6">
+    <div class="flex justify-between items-center mb-4">
+      <span class="font-body-lg text-body-lg text-primary">Total</span>
+      <span class="font-headline-lg text-headline-lg text-primary" id="drawer-total">$0.00</span>
+    </div>
+    <a href="cart.html" class="block w-full py-4 bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-widest text-center hover:bg-primary/90 transition-colors">View Bag & Checkout</a>
+  </div>
+</div>
+
+<script src="js/db.js"></script>
+<script src="js/cart.js"></script>
+</body></html>

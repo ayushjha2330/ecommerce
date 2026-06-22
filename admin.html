@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin | STITCH</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "surface-dim": "#dcdad5", "on-primary": "#ffffff", "on-secondary": "#ffffff",
+        "surface-container-high": "#ebe8e3", "tertiary-fixed": "#efe0d4",
+        "on-secondary-fixed-variant": "#61401b", "on-tertiary-fixed": "#211a13",
+        "outline": "#747878", "on-error": "#ffffff", "on-primary-fixed-variant": "#474746",
+        "secondary-container": "#fdcb9b", "secondary-fixed-dim": "#eebd8e",
+        "surface-tint": "#5f5e5e", "inverse-primary": "#c8c6c5",
+        "on-background": "#1c1c19", "surface-container-low": "#f6f3ee",
+        "on-secondary-container": "#79542d", "on-error-container": "#93000a",
+        "primary-fixed-dim": "#c8c6c5", "tertiary": "#000000",
+        "inverse-surface": "#31302d", "primary-container": "#1c1b1b",
+        "primary": "#000000", "surface-container-highest": "#e5e2dd",
+        "tertiary-container": "#211a13", "surface-container": "#f0ede9",
+        "primary-fixed": "#e5e2e1", "on-secondary-fixed": "#2c1600",
+        "on-primary-container": "#858383", "error-container": "#ffdad6",
+        "secondary-fixed": "#ffdcbd", "error": "#ba1a1a",
+        "on-tertiary-container": "#8d8277", "on-surface-variant": "#444748",
+        "secondary": "#7c5730", "tertiary-fixed-dim": "#d2c4b8",
+        "outline-variant": "#c4c7c7", "background": "#fcf9f4",
+        "on-tertiary": "#ffffff", "surface-variant": "#e5e2dd",
+        "inverse-on-surface": "#f3f0eb", "surface": "#fcf9f4",
+        "surface-bright": "#fcf9f4", "surface-container-lowest": "#ffffff",
+        "on-tertiary-fixed-variant": "#4e453c", "on-surface": "#1c1c19",
+        "on-primary-fixed": "#1c1b1b"
+      },
+      fontFamily: {
+        "body-md": ["Inter"], "display-lg": ["EB Garamond"],
+        "headline-lg": ["EB Garamond"], "headline-xl": ["EB Garamond"],
+        "label-caps": ["Inter"], "body-lg": ["Inter"]
+      },
+      spacing: {
+        "section-gap": "120px", "margin-mobile": "20px",
+        "gutter": "24px", "margin-desktop": "64px",
+        "unit": "8px", "container-max": "1440px"
+      }
+    }
+  }
+}
+</script>
+<style>
+body { background-color: theme('colors.background'); color: theme('colors.on-background'); overflow-x: hidden; }
+.luxury-border { border: 1px solid rgba(28, 28, 25, 0.08); }
+.input-editorial { border: none; border-bottom: 1px solid rgba(28, 28, 25, 0.08); background: transparent; border-radius: 0; padding: 8px 0; width: 100%; }
+.input-editorial:focus { outline: none; box-shadow: none; border-bottom-color: theme('colors.primary'); }
+select.input-editorial { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='%23444748'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0 center; padding-right: 20px; }
+</style>
+</head>
+<body class="antialiased font-body-md text-body-md">
+
+<!-- Login Screen -->
+<div id="admin-login" class="min-h-screen flex items-center justify-center px-margin-mobile">
+  <div class="w-full max-w-md">
+    <div class="text-center mb-12">
+      <a class="font-headline-xl text-headline-xl text-primary" href="home.html">STITCH</a>
+      <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mt-4">Admin Access</p>
+    </div>
+    <div class="bg-surface-container-lowest luxury-border p-8 ambient-shadow">
+      <div class="mb-6">
+        <label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-2 block">Password</label>
+        <input id="admin-password" class="input-editorial text-primary" type="password" placeholder="Enter admin password" />
+      </div>
+      <button id="admin-login-btn" class="w-full py-4 bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary/90 transition-colors">
+        Sign In
+      </button>
+      <p class="text-center text-xs text-on-surface-variant mt-4">Default: stitch123</p>
+    </div>
+  </div>
+</div>
+
+<!-- Admin App -->
+<div id="admin-app" class="hidden">
+  <!-- Top Bar -->
+  <nav class="bg-surface-container-lowest border-b border-outline-variant/30">
+    <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+      <a class="font-headline-lg text-headline-lg text-primary" href="home.html">STITCH</a>
+      <div class="flex items-center gap-4">
+        <a href="shop_all.html" class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest hover:text-primary transition-colors">View Site</a>
+        <button id="logout-btn" class="font-label-caps text-label-caps text-error uppercase tracking-widest hover:text-error/80 transition-colors">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-12">
+      <div>
+        <h1 class="font-headline-xl text-headline-xl text-primary">Products</h1>
+        <p class="font-body-md text-body-md text-on-surface-variant mt-2">Manage your product catalog</p>
+      </div>
+      <button id="add-product-btn" class="px-6 py-3 bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary/90 transition-colors flex items-center gap-2">
+        <span class="material-symbols-outlined text-sm">add</span> Add Product
+      </button>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <div class="bg-surface-container-lowest luxury-border p-6">
+        <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Total Products</p>
+        <p class="font-headline-xl text-headline-xl text-primary mt-2" id="stat-total">0</p>
+      </div>
+      <div class="bg-surface-container-lowest luxury-border p-6">
+        <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Best Sellers</p>
+        <p class="font-headline-xl text-headline-xl text-primary mt-2" id="stat-bestsellers">0</p>
+      </div>
+      <div class="bg-surface-container-lowest luxury-border p-6">
+        <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Categories</p>
+        <p class="font-headline-xl text-headline-xl text-primary mt-2" id="stat-categories">0</p>
+      </div>
+    </div>
+
+    <!-- Products Table -->
+    <div class="bg-surface-container-lowest luxury-border overflow-x-auto">
+      <table class="w-full">
+        <thead>
+          <tr class="border-b border-outline-variant/30 bg-surface-container-low">
+            <th class="text-left py-4 px-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Image</th>
+            <th class="text-left py-4 px-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Name</th>
+            <th class="text-left py-4 px-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Category</th>
+            <th class="text-left py-4 px-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Price</th>
+            <th class="text-left py-4 px-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Status</th>
+            <th class="text-left py-4 px-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="admin-products-body"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Product Modal -->
+<div id="product-modal" class="hidden fixed inset-0 bg-black/40 z-50 items-center justify-center p-4">
+  <div class="bg-surface-container-lowest w-full max-w-2xl max-h-[90vh] overflow-y-auto luxury-border p-8">
+    <div class="flex justify-between items-center mb-8">
+      <h2 id="form-title" class="font-headline-lg text-headline-lg text-primary">Add New Product</h2>
+      <button id="cancel-form" class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">close</span></button>
+    </div>
+    <form id="product-form" onsubmit="saveProduct(event)">
+      <input type="hidden" id="product-id" />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="md:col-span-2">
+          <label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-2 block">Product Name *</label>
+          <input id="product-name" class="input-editorial text-primary" required placeholder="e.g. The Crimson Rose" />
+        </div>
+        <div>
+          <label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-2 block">Price *</label>
+          <input id="product-price" class="input-editorial text-primary" type="number" step="0.01" min="0" required placeholder="45.00" />
+        </div>
+        <div>
+          <label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-2 block">Category</label>
+          <select id="product-category" class="input-editorial text-primary">
+            <option value="Crochet Flora">Crochet Flora</option>
+            <option value="Artisan Bears">Artisan Bears</option>
+            <option value="Curated Hampers">Curated Hampers</option>
+            <option value="Custom">Custom</option>
+          </select>
+        </div>
+        <div>
+          <label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-2 block">Material</label>
+          <input id="product-material" class="input-editorial text-primary" placeholder="e.g. Organic Cotton" />
+        </div>
+        <div>
+          <label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-2 block">Image URL *</label>
+          <input id="product-image" class="input-editorial text-primary" required placeholder="https://..." />
+        </div>
+        <div class="md:col-span-2">
+          <label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-2 block">Description</label>
+          <textarea id="product-description" class="input-editorial text-primary resize-none h-24" placeholder="Product description..."></textarea>
+        </div>
+        <div class="flex gap-8">
+          <label class="flex items-center gap-3 cursor-pointer group">
+            <input id="product-bestseller" type="checkbox" class="form-checkbox text-primary border-outline/30 rounded-none focus:ring-primary" />
+            <span class="font-body-md text-body-md text-primary group-hover:text-secondary transition-colors">Best Seller</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer group">
+            <input id="product-featured" type="checkbox" class="form-checkbox text-primary border-outline/30 rounded-none focus:ring-primary" />
+            <span class="font-body-md text-body-md text-primary group-hover:text-secondary transition-colors">Featured</span>
+          </label>
+        </div>
+      </div>
+      <div class="flex justify-end gap-4 mt-8 pt-6 border-t border-outline-variant/30">
+        <button type="button" id="cancel-form-btn" onclick="hideForm()" class="px-6 py-3 border border-outline-variant/30 text-primary font-label-caps text-label-caps uppercase tracking-widest hover:bg-surface-container transition-colors">Cancel</button>
+        <button type="submit" class="px-6 py-3 bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary/90 transition-colors">Save Product</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/db.js"></script>
+<script src="js/admin.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  function updateStats() {
+    const products = DB.getProducts();
+    document.getElementById('stat-total').textContent = products.length;
+    document.getElementById('stat-bestsellers').textContent = products.filter(p => p.bestSeller).length;
+    const cats = [...new Set(products.map(p => p.category))];
+    document.getElementById('stat-categories').textContent = cats.length;
+  }
+  updateStats();
+  const origRender = renderAdminProducts;
+  renderAdminProducts = function () {
+    origRender();
+    updateStats();
+  };
+});
+</script>
+</body>
+</html>

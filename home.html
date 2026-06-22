@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>STITCH | Handcrafted Gifting Studio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dcdad5",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#ebe8e3",
+                        "tertiary-fixed": "#efe0d4",
+                        "on-secondary-fixed-variant": "#61401b",
+                        "on-tertiary-fixed": "#211a13",
+                        "outline": "#747878",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#474746",
+                        "secondary-container": "#fdcb9b",
+                        "secondary-fixed-dim": "#eebd8e",
+                        "surface-tint": "#5f5e5e",
+                        "inverse-primary": "#c8c6c5",
+                        "on-background": "#1c1c19",
+                        "surface-container-low": "#f6f3ee",
+                        "on-secondary-container": "#79542d",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "tertiary": "#000000",
+                        "inverse-surface": "#31302d",
+                        "primary-container": "#1c1b1b",
+                        "primary": "#000000",
+                        "surface-container-highest": "#e5e2dd",
+                        "tertiary-container": "#211a13",
+                        "surface-container": "#f0ede9",
+                        "primary-fixed": "#e5e2e1",
+                        "on-secondary-fixed": "#2c1600",
+                        "on-primary-container": "#858383",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffdcbd",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#8d8277",
+                        "on-surface-variant": "#444748",
+                        "secondary": "#7c5730",
+                        "tertiary-fixed-dim": "#d2c4b8",
+                        "outline-variant": "#c4c7c7",
+                        "background": "#fcf9f4",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e5e2dd",
+                        "inverse-on-surface": "#f3f0eb",
+                        "surface": "#fcf9f4",
+                        "surface-bright": "#fcf9f4",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#4e453c",
+                        "on-surface": "#1c1c19",
+                        "on-primary-fixed": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "unit": "8px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "body-md": [
+                            "Inter"
+                        ],
+                        "display-lg": [
+                            "EB Garamond"
+                        ],
+                        "headline-lg": [
+                            "EB Garamond"
+                        ],
+                        "headline-xl": [
+                            "EB Garamond"
+                        ],
+                        "label-caps": [
+                            "Inter"
+                        ],
+                        "body-lg": [
+                            "Inter"
+                        ],
+                        "display-lg-mobile": [
+                            "EB Garamond"
+                        ]
+                    },
+                    "fontSize": {
+                        "body-md": [
+                            "16px",
+                            {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "display-lg": [
+                            "80px",
+                            {
+                                "lineHeight": "88px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "headline-lg": [
+                            "32px",
+                            {
+                                "lineHeight": "40px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "headline-xl": [
+                            "48px",
+                            {
+                                "lineHeight": "56px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "label-caps": [
+                            "12px",
+                            {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "body-lg": [
+                            "18px",
+                            {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "display-lg-mobile": [
+                            "48px",
+                            {
+                                "lineHeight": "52px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "400"
+                            }
+                        ]
+                    }
+                },
+            },
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Inter:wght@100..900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            overflow-x: hidden;
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Ambient subtle shadow for floating elements */
+        .ambient-shadow {
+            box-shadow: 0 20px 40px rgba(23, 23, 23, 0.04);
+        }
+
+        /* Thin subtle border */
+        .luxury-border {
+            border: 1px solid rgba(28, 28, 25, 0.08);
+            /* 8% rich black */
+        }
+
+        /* Editorial underline input */
+        .input-editorial {
+            border: none;
+            border-bottom: 1px solid rgba(28, 28, 25, 0.08);
+            background: transparent;
+            border-radius: 0;
+            padding: 8px 0;
+        }
+
+        .input-editorial:focus {
+            outline: none;
+            box-shadow: none;
+            border-bottom-color: theme('colors.primary');
+        }
+
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 24px;
+        }
+    </style>
+</head>
+
+<body class="antialiased font-body-md text-body-md">
+    <!-- TopNavBar -->
+    <nav class="fixed w-full top-0 z-50 bg-background/80 dark:bg-background/80 backdrop-blur-md border-b border-outline-variant/30 transition-all duration-300"
+        id="main-nav">
+        <div
+            class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto">
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-primary dark:text-primary">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+            <!-- Navigation Links (Desktop) -->
+            <div class="hidden md:flex items-center gap-gutter">
+                <a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-caps text-label-caps tracking-widest uppercase"
+                    href="shop_all.html">Shop</a>
+                <a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-caps text-label-caps tracking-widest uppercase"
+                    href="curated_collections.html">Collections</a>
+                <a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-caps text-label-caps tracking-widest uppercase"
+                    href="custom_commissions.html">Custom</a>
+                <a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-caps text-label-caps tracking-widest uppercase"
+                    href="our_story.html">About</a>
+            </div>
+            <!-- Brand Logo -->
+            <a class="font-headline-lg text-headline-lg tracking-tighter text-primary dark:text-primary absolute left-1/2 -translate-x-1/2 font-bold uppercase"
+                href="home.html">
+                STITCH
+            </a>
+            <!-- Trailing Icons -->
+            <div class="flex items-center gap-4 text-primary dark:text-primary">
+                <button class="hover:text-primary/70 transition-colors duration-300">
+                    <span class="material-symbols-outlined">favorite</span>
+                </button>
+                <button class="hover:text-primary/70 transition-colors duration-300 relative cart-toggle">
+                    <span class="material-symbols-outlined">shopping_bag</span>
+                    <span
+                        class="cart-badge absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] w-4 h-4 rounded-full items-center justify-center font-bold hidden">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main class="pt-[88px]">
+        <!-- Section 01 Hero -->
+        <section
+            class="min-h-[calc(100vh-88px)] flex flex-col lg:flex-row max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 gap-gutter">
+            <div class="w-full lg:w-5/12 flex flex-col justify-center pr-0 lg:pr-12 fade-in-up">
+                <span
+                    class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-6 block">Handcrafted
+                    Gifting Studio</span>
+                <h1
+                    class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary mb-8 leading-tight">
+                    Gifts <br /><span class="italic text-secondary">Worth</span> Keeping
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-md">
+                    Elevate the art of giving with our meticulously crafted crochet masterpieces. Each piece is a
+                    timeless modern heirloom, designed to express what words cannot.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a class="inline-flex items-center justify-center px-8 py-4 bg-primary text-on-primary font-label-caps text-label-caps tracking-widest uppercase hover:bg-primary/90 transition-colors duration-300"
+                        href="#">
+                        Explore Collections
+                    </a>
+                    <a class="inline-flex items-center justify-center px-8 py-4 bg-transparent border border-outline-variant text-primary font-label-caps text-label-caps tracking-widest uppercase hover:bg-surface-container transition-colors duration-300"
+                        href="custom_commissions.html">
+                        Bespoke Orders
+                    </a>
+                </div>
+            </div>
+            <div class="w-full lg:w-7/12 relative h-[614px] lg:h-auto mt-12 lg:mt-0 fade-in-up"
+                style="transition-delay: 200ms;">
+                <div class="absolute inset-0 bg-surface-container-low"></div>
+                <img class="absolute inset-0 w-full h-full object-cover object-center"
+                    data-alt="A highly detailed, editorial-style photograph of a meticulously crafted crochet floral bouquet. The bouquet features vibrant, textured yarn roses in deep reds and soft pinks, elegantly wrapped in premium, minimalist textured paper with a silk ribbon. The lighting is soft, natural, and high-key, illuminating the intricate stitches against a clean, light cream #F7F4EF background. The mood is luxurious, artisanal, and timeless, capturing the essence of a modern heirloom."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA86FYxyXp371wc1U4sLHaANdI9mPA5qz6gDVngHL1Iq199b-UPEVUhFGeolYIfBF1TCPjQfUeQnmTXFehXMO0yHotRXDYy2H2UtUGgFJQI3ml0tD6TF9h3B2G8qg6t0L3w6f8gLDFRVDx3alC6esdWlgMAURAilDp4xlG0g0NRhZNtbZnIvpm2bl4HjXM_rs5CM-1GxAabvV4Abkc1uzBLp0dhhJw2LoeT8ubN3k_gwxbnQvHbtlfD5Ovekk8IdtPriH0b4insD8g" />
+            </div>
+        </section>
+        <!-- Section 02 Featured Collections -->
+        <section class="py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+            <div class="text-center mb-16 fade-in-up">
+                <span
+                    class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-4 block">Curated
+                    Selections</span>
+                <h2 class="font-headline-xl text-headline-xl text-primary">Featured Collections</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter h-auto md:h-[800px]">
+                <!-- Large Item (Left) -->
+                <div
+                    class="md:col-span-7 relative h-[400px] md:h-full group overflow-hidden fade-in-up luxury-border bg-surface-container-lowest">
+                    <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        data-alt="Close-up, high-fashion editorial shot of intricate crochet roses in a sleek, minimalist ceramic vase. The lighting highlights the texture of the yarn and the delicate shadows falling across a pure white surface. The aesthetic is modern minimalism meets traditional craft."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-tWMI4jPC0OfxLG9aEhcGJm4eJMXH--dRmlVPEY6ugGYXHXvsWD2Vj7x3Ap1sGI9xy8Iyiwk7s531kVy0puDM_N4lYYbAcT_ruDW8GOIS-OZLh5-fyf569elenbQV7RzPXw7bpsxasRian0sA6N4lyasxcCKDSqZ9jrnZt7ZwcSTiTVGI0qfXAAomdCxzrCIugNTWgy__iUMVbuLPGX4QMTjivxrKa4alexW7kBoqMT-0mrjeY5VihcUeH9FPYl9sqgc3axJKzmQ" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <h3 class="font-headline-lg text-headline-lg text-on-primary mb-2">Crochet Roses</h3>
+                        <a class="inline-flex items-center text-on-primary font-label-caps text-label-caps tracking-widest uppercase hover:underline underline-offset-4"
+                            href="#">Shop Now <span
+                                class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a>
+                    </div>
+                </div>
+                <!-- Right Side Grid -->
+                <div class="md:col-span-5 grid grid-rows-3 gap-gutter h-full">
+                    <!-- Top Right -->
+                    <div class="relative h-[250px] md:h-full group overflow-hidden fade-in-up luxury-border bg-surface-container-lowest"
+                        style="transition-delay: 100ms;">
+                        <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            data-alt="A beautifully arranged gift hamper featuring a handcrafted crochet teddy bear, artisanal chocolates, and a personalized handwritten note on thick textured cardstock. The scene is lit softly from the side, emphasizing the luxury and care of the curation."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRvFZsmfDS7PJUBg3ljuzwsi9uu82Ub6-5eleskEgEAYFMcsLjzd6Z9MCxB9LpoIfypTNoyE1SlyqTOdgcQHOufjlNEkMgxwJZPUuS8HOAof1i3ruWRl50WJx_f3ZnRsEY-ZqLGZ5uwa9RPOZRQGlyQrCiQyTQfoHUeOwQ1Qzfoe1GVtjUlg_6U1U-tus7ALknEUXR2-H-_uwF1WeV7QKnGQRsp9I2BlUNWplhGleIENtOhbXw2NwYvyKJa_N-xp7B4w3mqBhK4eI" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <h3 class="font-headline-lg text-headline-lg text-on-primary mb-1">Gift Hampers</h3>
+                            <a class="inline-flex items-center text-on-primary font-label-caps text-label-caps tracking-widest uppercase hover:underline underline-offset-4"
+                                href="#">Explore <span
+                                    class="material-symbols-outlined ml-1 text-sm">arrow_forward</span></a>
+                        </div>
+                    </div>
+                    <!-- Middle Right -->
+                    <div class="relative h-[250px] md:h-full group overflow-hidden fade-in-up luxury-border bg-surface-container-lowest"
+                        style="transition-delay: 200ms;">
+                        <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            data-alt="A pair of delicate, custom-designed crochet keychains representing an anniversary gift, laid elegantly on a piece of raw silk fabric. High contrast, sharp focus on the details of the yarn, conveying a sense of bespoke luxury."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDLW-zd9E0-F7TAiADWeNgQ6VYo_1SRW5R3eony-Q2f949ssLiryCqQtviO8cGHCW9j8OkMPY8ZFGUiHByKtx2bztbfDQDUEoWCGoAiKkwctih2CqX7NIJ_R03fl1wi9CnpSAqskj0BW6G4qJg9SZBAuHNtwibKJFjIXRvBgV-une6LKcZuP0G0JUKnwTRI7P6P5Oaknco5A-RWF-ebfTXGHIftwUeiaGtipAlzfK-P-fAZOrb11jX2GHaR8MaVhaiEpXr7TARSak" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <h3 class="font-headline-lg text-headline-lg text-on-primary mb-1">Personalized</h3>
+                            <a class="inline-flex items-center text-on-primary font-label-caps text-label-caps tracking-widest uppercase hover:underline underline-offset-4"
+                                href="#">Customize <span
+                                    class="material-symbols-outlined ml-1 text-sm">arrow_forward</span></a>
+                        </div>
+                    </div>
+                    <!-- Bottom Right -->
+                    <div class="relative h-[250px] md:h-full group overflow-hidden fade-in-up luxury-border bg-surface-container-lowest"
+                        style="transition-delay: 300ms;">
+                        <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            data-alt="A charming, meticulously crafted crochet teddy bear sitting in an upscale, unbranded luxury gift box with a subtle logo embossed. The lighting is warm and inviting, highlighting the soft texture of the bear against the sleek box."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAitncEoe9w1YBHqgTcIGh-uL_IrrKxeWPGKQpfp0glY2s6bNQwTuLZ4DjxCP9veeVHdWk-Uj5N8Oo1od_5VnagQTIZuEiQ2Uhlw_YsjiWHvXcGWVh9T2d0KC38o3OKPiS61iQZRkHFC8SMU2_XXlvoxvZpLustqS2fxLsPJAZ8JHA_oCvrP3JoliF0Qa-woV82_IE58yQgEGqK7Q5hi1cOBfmxS-FyZmQLK8kCgMpu7Ek4kk-B36pGNluHg9oFiuGm-Myvhs9cLD8" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <h3 class="font-headline-lg text-headline-lg text-on-primary mb-1">The Bear Edit</h3>
+                            <a class="inline-flex items-center text-on-primary font-label-caps text-label-caps tracking-widest uppercase hover:underline underline-offset-4"
+                                href="#">View All <span
+                                    class="material-symbols-outlined ml-1 text-sm">arrow_forward</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section 03 Best Sellers -->
+        <section class="py-section-gap bg-surface-container-lowest border-y luxury-border">
+            <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="flex justify-between items-end mb-12 fade-in-up">
+                    <div>
+                        <span
+                            class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-4 block">The
+                            Atelier's Choice</span>
+                        <h2 class="font-headline-xl text-headline-xl text-primary">Best Sellers</h2>
+                    </div>
+                    <a class="hidden md:inline-flex items-center font-label-caps text-label-caps tracking-widest uppercase text-primary hover:text-secondary transition-colors duration-300"
+                        href="#">
+                        View All <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+                    </a>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter" id="best-sellers-grid"></div>
+                <div class="mt-12 text-center md:hidden">
+                    <a class="inline-flex items-center font-label-caps text-label-caps tracking-widest uppercase text-primary hover:text-secondary transition-colors duration-300"
+                        href="#">
+                        View All Best Sellers
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Section 04 Brand Story -->
+        <section class="py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+            <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+                <div class="w-full lg:w-1/2 relative h-[500px] lg:h-[700px] fade-in-up">
+                    <img class="absolute inset-0 w-full h-full object-cover"
+                        data-alt="A candid, artistic black and white photograph of an artisan's hands carefully manipulating a thin crochet hook and premium yarn. The focus is incredibly sharp on the hands and the emerging stitches, blurring the background into a soft bokeh. The image conveys dedication, skill, and the human touch behind every product."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuA976EvRNVNkqzC3KB067Z2uzvGVGh7I7O214qYCAxoD7KF4sNW3ue01WY5CajNvS0ee1sGcNRe9O15gUaASxrfHVRf-HS96GAXgeHkk3LPWQ2kropgLNxbYLqAsr33g7A8RxL_ctxKzV_GDkzmC1koLmRUiemAZG4XmGlNWyR2qQPEERXc6kYvS47trGPeDzHX2s_NVJXNuGhUGWuNKpHevJ_vOvRlSklJqOg71OZbZ5XlqEImfCaWW_MeiYcHHgVuuG14rBWCUw4" />
+                    <!-- Abstract geometric element acting as a signature -->
+                    <div
+                        class="absolute -bottom-8 -right-8 w-48 h-48 bg-surface-container-high luxury-border hidden lg:block z-[-1]">
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 fade-in-up" style="transition-delay: 200ms;">
+                    <span
+                        class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-6 block">Our
+                        Philosophy</span>
+                    <h2
+                        class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary mb-8 leading-tight">
+                        Crafted By Hand. <br />Designed To Last.
+                    </h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+                        In a world of mass production, we believe in the quiet luxury of the handmade. Every stitch is a
+                        deliberate act of creation, taking hours of focused dedication by skilled artisans.
+                    </p>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-10">
+                        We don't just make gifts; we craft modern heirlooms. Pieces designed not to be fleeting trends,
+                        but cherished keepsakes that hold emotion, memory, and artistry within their threads.
+                    </p>
+                    <img class="h-16 object-contain opacity-80"
+                        data-alt="A stylized, elegant handwritten signature reading 'The Stitch Atelier' in black ink on a textured white background. It serves as a personal endorsement of quality."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdAntH1iZfkQHfcw_mOUYRlqddqsf9aPhajTF4wea7oeoPqLgsGL2IEnEHJM73B6thueP8ysppwXoejBAAcAXwR7Ws23g9-B5yGpqSPQO8L7kkw2a9yWGEfRhw8MOzspOzlBKe2GjsgWDRc3eOt7hYwTuwhZjJz_Ev6dGjwPTiqWhU7nAwDyLL7NmZC8pY1vcJUbHU3u5EOzDcy2CEsnr1QVwSsJ2ZjX3g8dt4W0hu5sAklc7m8IbQu2G2kWgtWUCri-YnDtsdEzg" />
+                </div>
+            </div>
+        </section>
+        <!-- Section 05 Custom Gift Experience -->
+        <section class="py-section-gap bg-surface-container">
+            <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center mb-16 fade-in-up">
+                <span
+                    class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-4 block">Bespoke
+                    Service</span>
+                <h2 class="font-headline-xl text-headline-xl text-primary">The Signature Experience</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mt-6">
+                    Elevate your gift with our personalized touch. Upload a cherished memory and compose a heartfelt
+                    note, and we will translate it into a beautifully physical experience.
+                </p>
+            </div>
+            <div class="max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop fade-in-up">
+                <div class="bg-surface-container-lowest luxury-border p-8 md:p-12 ambient-shadow">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <!-- Left: Upload UI Concept -->
+                        <div
+                            class="border border-dashed border-outline-variant/50 flex flex-col items-center justify-center p-8 bg-surface-container-low min-h-[300px] hover:bg-surface-variant transition-colors cursor-pointer group">
+                            <span
+                                class="material-symbols-outlined text-4xl text-on-surface-variant mb-4 group-hover:text-primary transition-colors">add_photo_alternate</span>
+                            <h3 class="font-body-lg text-body-lg text-primary mb-2">Upload a Memory</h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant text-center text-sm">We'll print
+                                it on premium archival paper to accompany your gift.</p>
+                        </div>
+                        <!-- Right: Note UI Concept -->
+                        <div class="flex flex-col">
+                            <h3
+                                class="font-body-lg text-body-lg text-primary mb-6 border-b border-outline-variant/30 pb-2">
+                                The Gift Note</h3>
+                            <div class="flex-grow flex flex-col gap-6">
+                                <div>
+                                    <label
+                                        class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-2 block">To</label>
+                                    <input class="w-full input-editorial text-primary placeholder:text-outline-variant"
+                                        placeholder="Recipient's Name" type="text" />
+                                </div>
+                                <div class="flex-grow">
+                                    <label
+                                        class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-2 block">Message</label>
+                                    <textarea
+                                        class="w-full input-editorial text-primary placeholder:text-outline-variant resize-none h-32 font-headline-lg text-headline-lg italic opacity-70"
+                                        placeholder="Write your message here... It will be handwritten by our calligrapher."></textarea>
+                                </div>
+                                <button
+                                    class="w-full py-4 bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary/90 transition-colors mt-auto">
+                                    Save Personalization
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section 08 FAQ (Luxury Accordion) -->
+        <section class="py-section-gap max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop fade-in-up">
+            <div class="text-center mb-16">
+                <span
+                    class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-4 block">Information</span>
+                <h2 class="font-headline-xl text-headline-xl text-primary">Frequently Asked</h2>
+            </div>
+            <div class="space-y-0">
+                <!-- Accordion Item 1 -->
+<div class="border-b luxury-border">
+<button class="w-full py-6 flex justify-between items-center text-left focus:outline-none group faq-btn" aria-expanded="false">
+<span class="font-body-lg text-body-lg text-primary group-hover:text-secondary transition-colors">How long does custom crafting take?</span>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-secondary transition-colors faq-icon">add</span>
+</button>
+<div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+<p class="font-body-md text-body-md text-on-surface-variant pb-6 leading-relaxed">As each bespoke piece is meticulously hand-crocheted by our artisans, custom crafting typically takes 2 to 4 weeks depending on the complexity of the design and our current commission volume. We will provide a precise timeline estimate upon accepting your custom commission.</p>
+</div>
+</div>
+<!-- Accordion Item 2 -->
+<div class="border-b luxury-border">
+<button class="w-full py-6 flex justify-between items-center text-left focus:outline-none group faq-btn" aria-expanded="false">
+<span class="font-body-lg text-body-lg text-primary group-hover:text-secondary transition-colors">Do you ship internationally?</span>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-secondary transition-colors faq-icon">add</span>
+</button>
+<div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+<p class="font-body-md text-body-md text-on-surface-variant pb-6 leading-relaxed">Yes, STITCH offers complimentary standard shipping worldwide for all orders over $150. For orders under $150, standard shipping rates apply and are calculated at checkout. Express delivery options are also available.</p>
+</div>
+</div>
+<!-- Accordion Item 3 -->
+<div class="border-b luxury-border">
+<button class="w-full py-6 flex justify-between items-center text-left focus:outline-none group faq-btn" aria-expanded="false">
+<span class="font-body-lg text-body-lg text-primary group-hover:text-secondary transition-colors">How should I care for my crochet items?</span>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-secondary transition-colors faq-icon">add</span>
+</button>
+<div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+<p class="font-body-md text-body-md text-on-surface-variant pb-6 leading-relaxed">To preserve the beauty and shape of your hand-crocheted modern heirloom, we recommend gentle dry cleaning. Alternatively, you can hand wash in cold water using a mild wool detergent, reshape while damp, and lay flat to dry in the shade. Do not wring or tumble dry.</p>
+</div>
+</div>
+            </div>
+        </section>
+        <!-- Section 09 Newsletter -->
+        <section
+            class="py-section-gap bg-primary text-on-primary text-center px-margin-mobile md:px-margin-desktop relative overflow-hidden">
+            <!-- Subtle background texture/pattern could go here -->
+            <div
+                class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDBMOCA4Wk04IDBMMCA4WiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiPjwvcGF0aD4KPC9zdmc+')]">
+            </div>
+            <div class="relative z-10 max-w-2xl mx-auto fade-in-up">
+                <span
+                    class="font-label-caps text-label-caps text-on-primary/70 uppercase tracking-widest mb-6 block">The
+                    Inner Circle</span>
+                <h2 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg mb-6">
+                    Join The Stitch Journal</h2>
+                <p class="font-body-lg text-body-lg text-on-primary/80 mb-10">
+                    Subscribe to receive intimate studio updates, early access to new collections, and exclusive
+                    editorial content directly to your inbox.
+                </p>
+                <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                    <input
+                        class="flex-grow bg-transparent border-b border-on-primary/30 py-3 px-2 text-on-primary placeholder:text-on-primary/50 focus:outline-none focus:border-on-primary rounded-none"
+                        placeholder="Email Address" type="email" />
+                    <button
+                        class="bg-on-primary text-primary font-label-caps text-label-caps uppercase tracking-widest px-8 py-3 hover:bg-surface-container transition-colors"
+                        type="submit">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-surface-container dark:bg-surface-container-highest w-full border-t border-outline-variant mt-0">
+        <div
+            class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-16 md:py-section-gap max-w-container-max mx-auto">
+            <!-- Brand Column -->
+            <div class="col-span-1 md:col-span-2 mb-10 md:mb-0">
+                <a class="font-headline-xl text-headline-xl text-primary dark:text-primary block mb-6 uppercase tracking-tighter"
+                    href="home.html">STITCH</a>
+                <p class="font-body-md text-body-md text-on-surface-variant max-w-sm mb-8">
+                    Crafting modern heirlooms and bespoke gifts for the discerning individual. Designed to last, made to
+                    be remembered.
+                </p>
+                <div class="flex gap-4 text-primary">
+                    <a class="hover:text-secondary transition-colors" href="#"><span
+                            class="material-symbols-outlined">camera_alt</span></a>
+                    <a class="hover:text-secondary transition-colors" href="#"><span
+                            class="material-symbols-outlined">mail</span></a>
+                </div>
+            </div>
+            <!-- Links Column -->
+            <div class="col-span-1">
+                <h4 class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-6">Explore</h4>
+                <ul class="flex flex-col gap-4">
+                    <li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300"
+                            href="#">Journal</a></li>
+                    <li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300"
+                            href="#">Care Guide</a></li>
+                    <li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300"
+                            href="#">Shipping</a></li>
+                </ul>
+            </div>
+            <!-- Legal Column -->
+            <div class="col-span-1">
+                <h4 class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-6">Legal</h4>
+                <ul class="flex flex-col gap-4">
+                    <li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300"
+                            href="#">Privacy Policy</a></li>
+                    <li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300"
+                            href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div
+                class="col-span-1 md:col-span-4 mt-16 pt-8 border-t border-outline-variant/30 text-center md:text-left">
+                <p class="font-body-md text-body-md text-on-surface-variant uppercase tracking-wider text-xs">
+                    © 2026 STITCH ATELIER. CRAFTED FOR THE DISCERNING.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Simple Intersection Observer for Fade-in animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Run once
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-up').forEach((el) => {
+                observer.observe(el);
+            });
+
+                        // FAQ Accordion Toggle Logic
+            const faqButtons = document.querySelectorAll('.faq-btn');
+            faqButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const content = btn.nextElementSibling;
+                    const icon = btn.querySelector('.faq-icon');
+                    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+                    
+                    // Close other FAQs
+                    faqButtons.forEach(otherBtn => {
+                        if (otherBtn !== btn) {
+                            otherBtn.setAttribute('aria-expanded', 'false');
+                            otherBtn.nextElementSibling.style.maxHeight = null;
+                            otherBtn.querySelector('.faq-icon').textContent = 'add';
+                        }
+                    });
+
+                    // Toggle current FAQ
+                    if (isExpanded) {
+                        btn.setAttribute('aria-expanded', 'false');
+                        content.style.maxHeight = null;
+                        icon.textContent = 'add';
+                    } else {
+                        btn.setAttribute('aria-expanded', 'true');
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        icon.textContent = 'remove';
+                    }
+                });
+            });
+
+            // Top Nav Scroll Effect
+            const nav = document.getElementById('main-nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    nav.classList.add('shadow-sm');
+                    nav.classList.replace('py-6', 'py-4');
+                } else {
+                    nav.classList.remove('shadow-sm');
+                    nav.classList.replace('py-4', 'py-6');
+                }
+            });
+        });
+    </script>
+
+<!-- Cart Drawer -->
+<div id="cart-overlay" class="fixed inset-0 bg-black/30 z-40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+<div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-surface-container-lowest z-50 transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col">
+  <div class="flex justify-between items-center px-6 py-6 border-b border-outline-variant/30">
+    <div>
+      <h3 class="font-headline-lg text-headline-lg text-primary">Your Bag</h3>
+      <p class="font-body-md text-body-md text-on-surface-variant" id="drawer-count">0 items</p>
+    </div>
+    <button class="cart-toggle text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">close</span></button>
+  </div>
+  <div class="flex-1 overflow-y-auto px-6" id="drawer-items"></div>
+  <div class="border-t border-outline-variant/30 px-6 py-6">
+    <div class="flex justify-between items-center mb-4">
+      <span class="font-body-lg text-body-lg text-primary">Total</span>
+      <span class="font-headline-lg text-headline-lg text-primary" id="drawer-total">$0.00</span>
+    </div>
+    <a href="cart.html" class="block w-full py-4 bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-widest text-center hover:bg-primary/90 transition-colors">View Bag & Checkout</a>
+  </div>
+</div>
+
+<script src="js/db.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/shop.js"></script>
+</body>
+</html>
